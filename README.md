@@ -1,6 +1,6 @@
 # claude-plugin-portable-projects
 
-Symlinks `~/.claude/projects/<absolute-slug>` to `~/.claude-projects/<portable-slug>` on every prompt, keeping Claude Code project memory portable across machines.
+Symlinks `~/.claude/projects/<absolute-slug>` to `~/.claude-projects/<portable-slug>` on every prompt, keeping Claude Code project memory portable across Linux and macOS machines.
 
 ## Why
 
@@ -36,6 +36,8 @@ This plugin solves the problem by:
 ```
 
 The `UserPromptSubmit` hook is registered automatically. On the next prompt the symlink is created (or migrated from an existing real directory).
+
+Supported platforms: Linux and macOS. Native Windows is intentionally unsupported.
 
 ## After installation
 
