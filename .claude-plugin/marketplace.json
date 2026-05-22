@@ -5,13 +5,13 @@
     "email": "dhameoelin@gmail.com"
   },
   "metadata": {
-    "description": "Symlink ~/.claude/projects to ~/.claude-projects for cross-machine portability of Claude Code project memory.",
+    "description": "Symlink ~/.claude/projects to ~/.claude-projects for Linux/macOS portability of Claude Code project memory.",
     "version": "0.1.1"
   },
   "plugins": [
     {
       "name": "portable-projects",
-      "description": "Symlink ~/.claude/projects/<absolute-slug> to ~/.claude-projects/<portable-slug> so project memory survives across machines via dotfiles.",
+      "description": "Symlink ~/.claude/projects/<absolute-slug> to ~/.claude-projects/<portable-slug> so project memory survives across Linux/macOS machines via dotfiles.",
       "version": "0.1.1",
       "source": "./plugins/portable-projects",
       "category": "productivity",

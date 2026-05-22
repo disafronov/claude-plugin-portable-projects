@@ -29,20 +29,23 @@ mkdir -p "$PORTABLE_DIR" "$HOME/.claude/projects"
 # Real directory exists — migrate contents, then replace with symlink
 if [ -d "$CLAUDE_DIR" ] && [ ! -L "$CLAUDE_DIR" ]; then
     for item in "$CLAUDE_DIR"/* "$CLAUDE_DIR"/.[!.]* "$CLAUDE_DIR"/..?*; do
-        [ -e "$item" ] || continue
+        [ -f "$item" ] || [ -d "$item" ] || [ -L "$item" ] || continue
         basename=${item##*/}
-        if [ -e "$PORTABLE_DIR/$basename" ]; then
+        if [ -f "$PORTABLE_DIR/$basename" ] || [ -d "$PORTABLE_DIR/$basename" ] || [ -L "$PORTABLE_DIR/$basename" ]; then
             printf '%s\n' "portable-projects: refusing to overwrite $PORTABLE_DIR/$basename" >&2
             exit 1
         fi
     done
 
-    find "$CLAUDE_DIR" -maxdepth 1 -mindepth 1 -exec mv {} "$PORTABLE_DIR/" \;
-    rmdir "$CLAUDE_DIR"
+    for item in "$CLAUDE_DIR"/* "$CLAUDE_DIR"/.[!.]* "$CLAUDE_DIR"/..?*; do
+        [ -f "$item" ] || [ -d "$item" ] || [ -L "$item" ] || continue
+        mv "$item" "$PORTABLE_DIR/" || exit 1
+    done
+    rmdir "$CLAUDE_DIR" || exit 1
 fi
 
 if [ -L "$CLAUDE_DIR" ]; then
-    rm "$CLAUDE_DIR"
+    rm "$CLAUDE_DIR" || exit 1
 fi
 
-ln -s "$PORTABLE_DIR" "$CLAUDE_DIR"
+ln -s "$PORTABLE_DIR" "$CLAUDE_DIR" || exit 1
