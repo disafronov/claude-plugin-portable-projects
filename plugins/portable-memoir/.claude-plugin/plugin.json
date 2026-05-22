@@ -1,5 +1,5 @@
 {
   "name": "portable-memoir",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Symlinks ~/.memoir/<absolute-slug> to ~/.memoir-portable/<relative-slug> for memoir portability across Linux/macOS machines via dotfiles."
 }
