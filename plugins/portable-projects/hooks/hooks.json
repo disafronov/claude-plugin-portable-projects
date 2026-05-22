@@ -1,0 +1,16 @@
+{
+  "description": "Portable projects — ensure ~/.claude/projects symlinks point to portable slug dirs",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/ensure-symlink.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
