@@ -1,5 +1,5 @@
 {
   "name": "portable-projects",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Symlink ~/.claude/projects/<absolute-slug> to ~/.claude-projects/<portable-slug> for Linux/macOS portability"
 }
