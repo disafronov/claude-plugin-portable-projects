@@ -1,34 +1,17 @@
 {
-  "name": "portable-projects",
-  "owner": {
-    "name": "Dmitrii Safronov",
-    "email": "dhameoelin@gmail.com"
-  },
-  "metadata": {
-    "description": "Symlink ~/.claude/projects to ~/.claude-projects for Linux/macOS portability of Claude Code project memory.",
-    "version": "0.1.2"
-  },
+  "version": "0.0.1",
   "plugins": [
     {
       "name": "portable-projects",
-      "description": "Symlink ~/.claude/projects/<absolute-slug> to ~/.claude-projects/<portable-slug> so project memory survives across Linux/macOS machines via dotfiles.",
-      "version": "0.1.2",
+      "version": "0.1.1",
       "source": "./plugins/portable-projects",
-      "category": "productivity",
-      "author": {
-        "name": "Dmitrii Safronov",
-        "email": "dhameoelin@gmail.com"
-      },
-      "homepage": "https://github.com/disafronov/claude-plugin-portable-projects",
-      "repository": "https://github.com/disafronov/claude-plugin-portable-projects",
-      "license": "Apache-2.0",
-      "keywords": [
-        "portability",
-        "dotfiles",
-        "symlink",
-        "cross-machine",
-        "project-memory"
-      ]
+      "category": "productivity"
+    },
+    {
+      "name": "portable-memoir",
+      "version": "0.1.0",
+      "source": "./plugins/portable-memoir",
+      "category": "productivity"
     }
   ]
 }
