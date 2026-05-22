@@ -19,12 +19,12 @@ CLAUDE_SLUG=$(printf '%s' "$PROJECT_DIR" | tr '/.' '--')
 PORTABLE_DIR="$HOME/.claude-projects/$PORTABLE_SLUG"
 CLAUDE_DIR="$HOME/.claude/projects/$CLAUDE_SLUG"
 
+mkdir -p "$PORTABLE_DIR" "$HOME/.claude/projects"
+
 # Already a correct symlink — nothing to do
 if [ -L "$CLAUDE_DIR" ] && [ "$(readlink "$CLAUDE_DIR")" = "$PORTABLE_DIR" ]; then
     exit 0
 fi
-
-mkdir -p "$PORTABLE_DIR" "$HOME/.claude/projects"
 
 # Real directory exists — migrate contents, then replace with symlink
 if [ -d "$CLAUDE_DIR" ] && [ ! -L "$CLAUDE_DIR" ]; then
